@@ -5,13 +5,19 @@ import styles from './Home.css';
 
 
 export default class Home extends Component {
+
+  save = () => {
+    new Notification('Notes', {
+      body: 'Your note was just saved!'
+    })
+  }
+
   render() {
     return (
       <div className="window">
         <div className="window-content">
           <div className="pane-group">
             <div className="pane-sm sidebar">
-
               <ul className="list-group">
                 <li className="list-group-header">
                   <input className="form-control" type="text" placeholder="Search for some Note" />
@@ -76,9 +82,9 @@ export default class Home extends Component {
                   <label>Description</label>
                   <textarea className="form-control" rows="20" cols="10"></textarea>
                 </div>
-                <div class="form-actions">
-                  <button type="submit" className="btn btn-form btn-default">DISCARD</button>
-                  <button type="submit" className="btn btn-form btn-primary">SAVE</button>
+                <div className="form-actions">
+                  <button type="button" className="btn btn-form btn-default">DISCARD</button>
+                  <button type="button" onClick={() => this.save()} className="btn btn-form btn-primary">SAVE</button>
                 </div>
               </form>
             </div>
